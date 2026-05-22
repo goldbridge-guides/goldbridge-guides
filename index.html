@@ -168,7 +168,70 @@ footer{border-top:1px solid var(--borderL);padding:48px 0 40px}
 .fu{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.fu.visible{opacity:1;transform:translateY(0)}
 
 /* Mobile */
-@media(max-width:768px){nav{display:none}nav.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:20px 28px;gap:16px}.mt{display:block}.hero{padding:60px 0 52px}.hero h1{font-size:1.85rem}.s{padding:56px 0}.pg{grid-template-columns:1fr}.eg{grid-template-columns:1fr}}
+@media(max-width:768px){
+.c{padding:0 20px}
+nav{display:none}
+nav.open{display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--bg);padding:24px 20px;gap:0;z-index:99;overflow-y:auto}
+nav.open a{padding:16px 0;border-bottom:1px solid var(--borderL);font-size:1rem;display:block}
+.mt{display:block}
+.hero{padding:52px 0 44px}
+.hero h1{font-size:1.7rem;max-width:100%}
+.hero p{font-size:1rem;max-width:100%;margin-bottom:32px}
+.hbs{flex-direction:column;gap:10px}
+.hbs .btn{width:100%;justify-content:center;padding:16px 24px}
+.ts{gap:10px 20px;padding-top:28px;margin-top:20px}
+.ti{font-size:.82rem;gap:7px}
+.ti svg{width:16px;height:16px}
+.s{padding:52px 0}
+.st{font-size:1.45rem}
+.sd{font-size:.95rem}
+.hg{grid-template-columns:1fr;gap:14px;margin-top:32px}
+.hc{padding:24px 20px}
+.cg{grid-template-columns:1fr;gap:14px;margin-top:32px}
+.cc{padding:22px 20px}
+.mg{margin-top:32px}
+.ms{padding:22px 20px}
+.pg{grid-template-columns:1fr;gap:16px;margin-top:32px}
+.pch{padding:20px 22px 14px}
+.pcb{padding:16px 22px 20px}
+.eg{grid-template-columns:1fr;gap:10px}
+.ei{padding:14px 16px;font-size:.88rem}
+.lg{grid-template-columns:1fr;gap:16px;margin-top:32px}
+.lc{padding:28px 22px}
+.cos{padding:56px 0}
+.cos p{font-size:.95rem}
+.ce{font-size:.92rem;padding:14px 24px;word-break:break-all}
+.fi{flex-direction:column;gap:28px}
+.fl{gap:0;flex-direction:column}
+.fl a{padding:12px 0;border-bottom:1px solid var(--borderL);display:block;font-size:.95rem}
+.fb{flex-direction:column;gap:8px}
+.fbd{max-width:100%}
+.dp{padding:44px 0 64px}
+.db{flex-wrap:wrap;gap:4px;font-size:.78rem}
+.dh h1{font-size:1.55rem}
+.dh p{font-size:.95rem}
+.dc h2{font-size:1.12rem;margin:28px 0 12px}
+.dc p{font-size:.9rem}
+.dc ul li{font-size:.88rem;padding-left:20px}
+.dd{padding:20px 20px;font-size:.85rem}
+.da{flex-direction:column;gap:10px}
+.da .btn{width:100%;justify-content:center;text-align:center}
+.ct{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ct th,.ct td{padding:12px 14px;font-size:.82rem;white-space:nowrap}
+.ci{gap:10px;padding:12px 0}
+.ci h4{font-size:.88rem}
+.ci p{font-size:.82rem}
+.bog{width:100%;justify-content:center;text-align:center;padding:14px 20px}
+}
+@media(max-width:380px){
+.c{padding:0 16px}
+.hero h1{font-size:1.45rem}
+.hero p{font-size:.92rem}
+.st{font-size:1.3rem}
+.hc h3,.cc h3{font-size:1rem}
+.dh h1{font-size:1.35rem}
+.ct th,.ct td{padding:10px 12px;font-size:.78rem}
+}
 
 /* Theme toggle */
 .tt{position:relative;width:52px;height:28px;background:var(--border);border-radius:100px;border:none;cursor:pointer;padding:0;flex-shrink:0;transition:background .3s;margin-left:8px}
@@ -532,6 +595,7 @@ if(p==='home'){h.style.display='';if(s){setTimeout(function(){var el=document.ge
 else{h.style.display='none';var t=document.getElementById('page-'+p);if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'instant'})}}}
 var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12});
 document.querySelectorAll('.fu').forEach(function(el){ob.observe(el)});
+document.addEventListener('click',function(e){var n=document.getElementById('mn');if(n.classList.contains('open')&&!n.contains(e.target)&&!e.target.closest('.mt'))n.classList.remove('open')});
 var tg=document.getElementById('themeToggle'),rt=document.documentElement,sv=localStorage.getItem('gb-theme');
 if(sv==='dark'||(!sv&&window.matchMedia('(prefers-color-scheme:dark)').matches))rt.setAttribute('data-theme','dark');
 tg.addEventListener('click',function(){var d=rt.getAttribute('data-theme')==='dark';rt.setAttribute('data-theme',d?'light':'dark');localStorage.setItem('gb-theme',d?'light':'dark')});
